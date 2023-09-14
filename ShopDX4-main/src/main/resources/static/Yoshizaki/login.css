@@ -1,0 +1,45 @@
+.top{
+    margin: 30px;
+    padding-top: 30px;
+    padding-bottom: 0%;
+}
+.moji1{
+    text-align: center;
+}
+.rogid{
+    text-align: center;
+}
+.rogid2{
+    text-align: center;
+    margin-right: 130px;
+    margin-left: 20px;
+    height: 2em;
+    width: 20em;
+}
+.password{
+    text-align: center;
+}
+.password2{
+    text-align: center;
+    margin-right: 130px;
+    margin-left: 24px;
+    height: 2em;
+    width: 20em;
+}
+.rogin{
+    text-align: center;
+}
+.rogin2{
+    height: 30px;
+    width: 150px;
+}
+.moji2{
+    text-align: center;
+}
+.sinki{
+    text-align: center;
+}
+.sinki2{
+    text-decoration: underline;
+    color: blue;
+}

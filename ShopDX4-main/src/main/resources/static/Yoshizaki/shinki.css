@@ -1,0 +1,102 @@
+.top{
+    text-align: center;
+    padding-top: 5%;
+}
+.kihon{
+    text-align: center;
+    margin-right: 60%;
+}
+.name{
+    text-align: center;
+    margin-right: 40%
+}
+.kanji{
+    margin:0 auto;
+}
+.name2{
+    text-align: center;
+    margin-right: 40%;
+}
+.kana{
+    margin:0 auto;
+}
+.tanjoubi{
+    text-align: center;
+    margin-right: 37%;
+}
+.tanjoubi2{
+    text-align: center;
+    margin-right: 23%;
+}
+.meado{
+    text-align: center;
+    margin-right: 32%;
+}
+.meado2{
+    text-align: center;
+    margin-right: 1%;
+}
+.denwa{
+    text-align: center;
+    margin-right: 37%;
+}
+.denwa2{
+    text-align: center;
+    margin-right: 27%;
+}
+.juusho{
+    text-align: center;
+    margin-right: 61%;
+}
+.yuubin{
+    text-align: center;
+    margin-right: 40%;
+}
+.yuubin2{
+    text-align: center;
+    margin-right:30%;
+}
+.juusho2{
+    text-align: center;
+    margin-right: 40%;
+}
+.juusho3{
+    text-align: center;
+    margin-left: 10%;
+}
+.idpass{
+    text-align: center;
+    margin-right: 51%;
+}
+.id{
+    text-align: center;
+    margin-right: 41%;
+}
+.id2{
+    text-align: center;
+    margin-right: 15%;
+}
+.pass{
+    text-align: center;
+    margin-right: 35%;
+}
+.pass2{
+    text-align: center;
+    margin-right: 15%;
+}
+.pass3{
+    text-align: center;
+    margin-right: 29%;
+}
+.pass4{
+    text-align: center;
+    margin-right: 15%;
+}
+.end{
+    text-align: center;
+    padding-top: 4%;
+}
+.end2{
+    height: 30px;
+    width: 150px;
+}

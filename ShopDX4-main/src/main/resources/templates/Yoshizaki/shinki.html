@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet", href="shinki.css">
+<link th:href="@{/yoshizaki/shinki.css}" rel="stylesheet" type="text/css" />
+<title>新規会員登録</title>
+</head>
+<body>
+    <h1 class="top">新規会員登録</h1>
+    <br>
+<form th:action="@{/users}" th:object="${user}" method="post" >
+    <h3 class="kihon">基本情報</h3>
+    <p class="name">氏名</p>
+    <table class="kanji">
+    <tr>
+    <td><input type="text" name="sei" th:field="*{sei}" /></td>
+    <td><input type="text" name="mei" th:field="*{mei}" /></td>
+    </tr>
+    </table>
+    <p class="name2">カナ</p>
+    <table class="kana">
+        <tr>
+        <td><input type="text" name="sei2" th:field="*{sei2}" /></td>
+        <td><input type="text" name="mei2" th:field="*{mei2}" /></td>
+        </tr>
+        </table>
+    <p class="tanjoubi">生年月日</p>
+    <div class="tanjoubi2">
+    <input type="date" name="birthday" th:field="*{birthdate}" placeholder="yyyy/mm/dd" />
+    </div>
+    <p class="meado">メールアドレス</p>
+    <dd class="meado2">
+    <input type="text" name="meado" size="50" th:field="*{mail}" placeholder="メールアドレスを入力してください" />
+    </dd>
+    <p class="denwa">電話番号</p>
+    <dd class="denwa2">
+    <input type="tel" size="9" maxlength="13"  name="tel" th:field="*{tell}" placeholder="xxx-xxxx-xxxx" />
+    </dd>
+    <h3 class="juusho">住所</h3>
+    <p class="yuubin">郵便</p>
+    <dd class="yuubin2">
+    <input type="tel" size="4" maxlength="8" name="post" th:field="*{post}" placeholder="xxx-xxxx" />
+    </dd>
+    <p class="juusho2">住所</p>
+    <dd class="juusho3">
+    <input type="text" size="60" name="addr" th:field="*{addr}"  placeholder="〇〇県〇〇市〇〇区〇〇丁目〇〇番" />
+    </dd>
+
+    <h3 class="idpass">ID/パスワード</h3>
+    <p class="id">ID</p>
+    <div class="id2">
+    <input type="text" name="id" th:field="*{uid}" placeholder="数字のみ16文字以内" />
+    </div>
+    <p class="pass">パスワード</p>
+    <div class="pass2">
+    <input type="password" name="pas"th:field="*{password}" placeholder="16文字以内" />
+    </div>
+    <p class="pass3">パスワード(再入力)</p>
+    <div class="pass4">
+    <input type="password" name="pass2" placeholder="16文字以内">
+    </div>
+    <br>
+    <div class="end">
+    <input type="submit" class="end2"value="新規登録">
+    </div>
+    </form>
+</body>
+</html>

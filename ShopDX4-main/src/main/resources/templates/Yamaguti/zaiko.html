@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ShoppingWeb:商品の入庫管理</title>
+</head>
+
+<body>
+	<h1>ShoppingWeb:入庫管理</h1>
+	<h3>商品追加</h3>
+
+	<form method="POST" th:object="${merch}" th:action="@{/yamaguti/b3}">
+		<label>商品コード：</label><br>
+		<input type="text" th:field="*{code}" />
+		<br>
+		<label>更新日：</label><br>
+		<input type="date" pattern="^[0-9]+$" th:field="*{update}" />
+		<br>
+		<label>在庫：</label><br>
+		<input type="text" th:field="*{stock}" />
+		<br>
+		<input type="submit" value="送信">
+
+
+	</form>
+	<br>
+	<hr>
+	<a href="#" th:href="@{/}">TOP画面へ戻る</a>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ShoppingWeb:商品管理</title>
+</head>
+
+<body>
+	<h1>ShoppingWeb:商品管理</h1>
+	<h3>商品追加</h3>
+
+	<form method="POST" th:object="${merch}" th:action="@{/insert}">
+		<label>商品コード：</label><br>
+		<input type="text" th:field="*{code}" />
+		<br>
+		<label>商品名：</label><br>
+		<input type="text" th:field="*{name}" />
+		<br>
+		<label>価格：</label><br>
+		<input type="text" th:field="*{price}" />
+		<br>
+		<label>カテゴリ：</label><br>
+		<input type="text" th:field="*{category}" />
+		<br>
+		<label>属性：</label><br>
+		<input type="text"  th:field="*{attribute}" />
+		<br>
+		<label>在庫：</label><br>
+		<input type="text" th:field="*{stock}" />
+		<br>
+		<label>登録日：</label><br>
+		<input type="date" pattern="^[0-9]+$" th:field="*{regiday}" />
+		<br>
+		<label>更新日：</label><br>
+		<input type="date" pattern="^[0-9]+$" th:field="*{update}" />
+		<br>
+		<label>取扱終了日：</label><br>
+		<input type="date" pattern="^[0-9]+$" th:field="*{eos}" />
+		<br>
+		<input type="submit" value="送信">
+
+
+	</form>
+	<br>
+	<a href="/yamaguti/kensaku">検索</a>
+	<br>
+	<a href="/yamaguti/zaiko">在庫管理</a> 
+	<br>
+	<a href="/yamaguti/itempage">作った商品ページ</a>
+	<hr>
+
+	<div style="margin: 10px">
+		<h3>商品一覧：</h3><form method="POST" th:action="@{/yamaguti/kousin}"> <input type="submit" value="更新ボタン"></form>
+		<table border="1" th:unless="${#lists.isEmpty(list)}" style="table-layout: fixed;">
+			<tr>
+				<th>商品コード</th>
+				<th>商品名</th>
+				<th>価格</th>
+				<th>カテゴリー</th>
+				<th>属性</th>
+				<th>在庫数</th>
+				<th>登録日</th>
+				<th>更新日</th>
+				<th>取り扱い終了日</th>
+				<th>編集</th>
+				<th>削除</th>
+			</tr>
+			<tr th:each="obj : ${list}" align="center">
+				<td th:text="${obj.code}"></td>
+				<td th:text="${obj.name}"></td>
+				<td th:text="${obj.price}"></td>
+				<td th:text="${obj.category}"></td>
+				<td th:text="${obj.attribute}"></td>
+				<td th:text="${obj.stock}"></td>
+				<td th:text="${obj.regiday}"></td>
+				<td th:text="${obj.update}"></td>
+				<td th:text="${obj.eos}"></td>
+				
+				<!--/* 編集ボタン */-->
+				<td>
+					<form method="POST" th:action="@{/yamaguti/henshu}">
+						<input type="submit" value="編集">
+					</form>
+				</td>
+				<!--/* 削除ボタン */-->
+				<td>
+					<form method="POST" th:action="@{/a/delete}">
+						<input type="hidden" name="code" th:value="${obj.code}"> <input type="submit" value="削除">
+					</form>
+				</td>
+			</tr>
+		</table>
+		<a href="#" th:href="@{/}">TOP画面へ戻る</a>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>支払い</title>
+<style>
+    #creditcard{
+        display: none;
+    }
+    #giftcode{
+        display: none;
+    }
+    .button{
+        position:relative;
+            margin-top:40px;
+            margin-left:100px;
+            height:90px;
+            width:200px;
+            background-color: blue;
+    }
+    .b{
+            text-decoration: none;
+            text-align: center;
+            color:black;
+            position:absolute;
+            padding-top: 35px;
+            width:100%;
+            height:100%;
+        }
+     table{
+		 display:none;
+	 }
+</style>
+</head>
+<body>
+    <h1>支払い</h1>
+    <input type="radio" name="content" value="credit" id="credit"><label for="credit">クレジットカード</label>
+    <input type="radio" name="content" value="gift" id="gift"><label for="gift">ギフトコード</label>
+    <div id="creditcard">
+    <form action="" method="post">
+        <label for="card_number">カード番号:</label>
+        <input type="text" id="card_number" name="card_number" required><br>
+
+        <label for="card_name">カード名義人:</label>
+        <input type="text" id="card_name" name="card_name" required><br>
+
+        <label for="expiry_date">有効期限:</label>
+        <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required><br>
+
+        <label for="cvv">セキュリティコード (CVV):</label>
+        <input type="text" id="cvv" name="cvv" required><br>
+
+        <label for="billing_address">請求先住所:</label>
+        <textarea id="billing_address" name="billing_address" rows="4" cols="50" required></textarea><br>
+
+       <form method="post" th:action="@{/cpay}" th:Object="${Cart}">
+			<div class="button"><button type="submit" class="b">支払う</button>
+		</div></form>
+    </form>
+    </div>
+    <div id="giftcode">
+        <label for="card_number">ギフトコード番号:</label>
+        <input type="text" id="card_number" name="card_number" required><br>
+
+        <label for="billing_address">請求先住所:</label>
+        <textarea id="billing_address" name="billing_address" rows="4" cols="50" required></textarea><br>
+        
+        <form method="post" th:action="@{/cpay}" th:Object="${Cart}">
+			<div class="button"><button type="submit" class="b">支払う</button>
+
+		</div></form>
+        
+<!--        <div class="button"><a href="comp" class="b">支払い</a></div>-->
+    </div>
+<script>
+const radio1 = document.getElementById('credit');
+const radio2 = document.getElementById('gift'); 
+const content1 = document.getElementById('creditcard');
+const content2 = document.getElementById('giftcode'); 
+
+radio1.addEventListener('change', () => {
+  content1.style.display = 'block';
+  content2.style.display = 'none';
+});
+
+radio2.addEventListener('change', () => {
+  content1.style.display = 'none';
+  content2.style.display = 'block';
+});
+
+</script>
+</body>
+</html>

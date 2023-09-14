@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="passs.css">
+    <link th:href="@{/yoshizaki/passs.css}" rel="stylesheet" type="text/css" />
+    <title>パスワード再設定</title>
+</head>
+<body>
+    <form th:action="@{/users}" th:object="${user}" method="post">
+        <div class="top2">
+            <input type="button" onclick="location.href='./index.html'" value="TOPへ">
+        </div>
+        <h1 class="top">パスワードの再設定</h1>
+        <br>
+
+        <p class="pass">現在のパスワード</p>
+        <div class="pass2">
+            <td th:text="${pas}"></td>
+        </div>
+        <p class="pass3">新しいパスワード</p>
+        <div class="pass4">
+            <input type="password" th:field="*{password}" placeholder="16文字以内">
+        </div>
+        <p class="pass5">新しいパスワード(再入力)</p>
+        <div class="pass6">
+            <input type="password" placeholder="16文字以内">
+        </div>
+        <div class="end">
+            <input type="submit" class="end2" value="パスワードを再設定する">
+        </div>
+    </form>
+</body>
+</html>

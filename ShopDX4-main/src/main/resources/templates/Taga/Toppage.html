@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta name="description" content="contact">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+<link rel="stylesheet" href="./../../../resources/static/taga/toppagecss.css">
+
+<link th:href="@{/taga/toppagecss.css}" rel="stylesheet" type="text/css" />
+
+<title>ShopDX4</title>
+
+</head>
+<body>
+
+    <header>
+
+        <div class="header">
+            <div class="logo">
+
+                <a href="/">
+                    <img class="logo" th:src="@{/taga/ceros.jpg}">
+                </a>
+
+            </div>
+            <div>
+				<h3>Fumio Kishida  さん ようこそ♪</h3>
+			</div>
+
+            <div class="rightheader">
+                <div class="login">
+                    <a href="/login">ログイン</a>
+            </div>
+                
+                <div class="favorite">
+                    <a href="favoriteitems">お気に入り</a>
+                </div>
+
+                <div class="cart">
+                    <a href="/hamada/cart">カート</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <article>
+
+        <div class="category">
+            <div>
+				<a>category</a>                   
+                <div th:each="merch : ${items}">	
+            		<th:block th:with="categorySet=${categorySet}">
+                	<th:block th:unless="${categorySet.contains(merch.category)}">
+                    <a th:href="@{'/category/' + ${merch.category}}"><span th:text="${merch.category}">Category</span></a>
+                    <th:block th:with="categorySet=${categorySet.add(merch.category)}"></th:block>
+                </th:block>
+            </th:block>
+        </div>
+            </div>
+        </div>
+
+        <div class="mainarticle">
+            
+				
+            <div class="favoriteitem" >
+				
+				<h2>お気に入りアイテム</h2>
+				
+				<div>
+					<a href="favoriteitems">一覧</a>
+				</div>
+				
+				<div class="favoitemdiv">
+					<a class="favoitemdivdiv" th:each="item:${favoriteItems}" th:href="@{'/item/' + ${item.code}}">
+	
+						<img class="itemimage" th:src="@{'/image/' + ${item.code} + '.jpg'}">
+						<p th:text="${item.name}"></p>
+						
+					</a>
+				</div>
+			
+            </div>
+            
+            <div class="ItemRanking">
+				
+				<h2>アイテムランキング</h2>
+				
+                <div class="ItemRankingDiv">
+					<a class="ItemRankingDivDiv" th:each="rank:${ItemRanking}" th:href="@{'/item/' + ${rank.code}}">
+						<img class="rankimage" th:src="@{'/image/' + ${rank.code} + '.jpg'}">
+						<p th:text="${rank.name}"></p>
+					</a>	
+				</div>
+			</div>
+            
+        </div>
+
+    </article>
+    
+    <footer>
+		
+		<a href="other" >特定商取引法に基づく表示</a>
+		<a href="kiyaku" >サービス利用規約</a>
+		
+	</footer>
+
+</body>
+</html>

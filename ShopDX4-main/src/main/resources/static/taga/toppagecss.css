@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+body{
+
+    height: 100vh;
+
+    width: 100%;
+
+    background-color: rgb(244, 244, 244);
+
+    line-height: 1.7;
+
+}
+
+article{
+
+    display: flex;
+
+}
+
+.mainarticle{
+    background-color: rgb(255, 255, 255);
+    margin: 2%;
+    padding: 2%;
+    width: 90%;
+    border: solid;
+}
+
+.header{
+
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    margin: 2%;
+    padding: 2%;
+    align-items: center;
+    border: solid;
+    
+}
+.header .logo{
+
+    align-items: center;
+	margin: 0%;
+}
+.rightheader{
+
+    display: flex;
+    align-items: center;
+    width: 20%;
+    padding: 2%;
+    margin: 0 0 0 auto;
+    background-color: rgb(255, 255, 255);
+
+}
+.rightheader .login{
+    margin: 2%;
+}
+.rightheader .favorite{
+    margin: 2%;
+}
+.rightheader .cart{
+    margin: 2%;
+}
+
+.category{
+    background-color: rgb(255, 255, 255);
+    margin: 2%;
+    padding: 2%;
+    height: auto;
+    width: 15%;
+    border: solid;
+}
+.logo{
+    height: 100px;
+}
+.mainarticle .categoryitemsh1{
+    margin: 2%;
+    text-align: center;
+
+}
+.categoryitemsdiv img{
+    height: 240px;
+}
+.categoryitemsdiv{
+    width: 200px;
+}
+
+.categoryitemsarticle{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.favoitemdiv{
+	display:flex;
+}
+.favoitemdivdiv{
+	width: 200px;
+}
+.favoitemdivdiv img{
+	height: 240px;
+}
+.favoriteitem h2{
+	margin: 2%;
+	text-align: center;
+}
+.ItemRankingDiv{
+	display:flex;
+}
+.ItemRankingDivDiv{
+    width: 200px;
+}
+.ItemRankingDivDiv img{
+    height: 240px;
+}
+.ItemRanking h2{
+    margin: 2%;
+	text-align: center;
+}
+footer{
+    text-align: center;
+}
+
+.otherarticle{
+
+    
+    background-color: rgb(255, 255, 255);
+    margin: 2%;
+    padding: 2%;
+    align-items: center;
+    border: solid;
+    width: 100%;
+    text-align: left;
+    padding-left: 10%;
+}
+
+
+
+
+
+
+
+

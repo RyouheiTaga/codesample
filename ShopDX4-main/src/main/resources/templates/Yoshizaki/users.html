@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet", href="userjouhou.css">
+<link th:href="@{/yoshizaki/userjouhou.css}" rel="stylesheet" type="text/css" />
+<title>ユーザー情報の修正</title>
+</head>
+<body>
+    <h1 class="top">ユーザー情報の修正</h1>
+    <br>
+
+    <h3 class="kihon">基本情報</h3>
+    <form th:action="@{/userjouhou}" >
+    <p class="name">氏名</p>
+    <table class="kanji">
+    <tr>
+    <td>旧:[[${sei}]]</td>
+    <td>旧:[[${mei}]]</td>
+    </tr>
+    <tr>
+    <td><input type="text" name="sei" placeholder="姓"></td>
+    <td><input type="text" name="mei" placeholder="名"></td>
+    </tr>
+    </table>
+    <p class="name2">カナ</p>
+    <table class="kana">
+        <tr>
+        <td>旧:[[${sei2}]]</td>
+        <td>旧:[[${mei2}]]</td>
+        </tr>
+        <tr>
+        <td><input type="text" name="sei2" placeholder="セイ"></td>
+        <td><input type="text" name="mei2" placeholder="メイ"></td>
+        </tr>
+        </table>
+    <p class="tanjoubi">生年月日</p>
+    <div class="tanjoubi2">
+    <p>旧:[[${birthday}]]</p>
+    <input type="date" name="placeholder" placeholder="yyyy/mm/dd">
+    </div>
+    <p class="meado">メールアドレス</p>
+    <dd class="meado2">
+    <p>旧:[[${meado}]]</p>
+    <input type="text" size="50" name="meado" placeholder="メールアドレスを入力してください">
+    </dd>
+    <p class="denwa">電話番号</p>
+    <dd class="denwa2">
+    <p>旧:[[${tel}]]</p>
+    <input type="tel" size="9" maxlength="13" name="tel" placeholder="xxx-xxxx-xxxx">
+    </dd>
+
+    <h3 class="juusho">住所</h3>
+    <p class="yuubin">郵便</p>
+    <dd class="yuubin2">
+    <p>旧:[[${post}]]</p>
+    <input type="tel" size="4" maxlength="8" name="post" placeholder="xxx-xxxx">
+    </dd>
+    <p class="juusho2">住所</p>
+    <dd class="juusho3">
+    <p>旧:[[${addr}]]</p>
+    <input type="text" size="60" name="addr" placeholder="〇〇県〇〇市〇〇区〇〇丁目〇〇番">
+    </dd>
+
+    <h3 class="idpass">ID</h3>
+    <p class="id">ID</p>
+    <div class="id2">
+    <p>旧:[[${id}]]</p>
+    <input type="text" name="id" placeholder="16文字以内">
+    </div>
+    <br>
+    <div class="end">
+    <input type="submit" class="end2" onclick="location.href='./index.html'"value="設定を更新する">
+    </div>
+    </form>
+</body>
+</html>

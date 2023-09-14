@@ -1,0 +1,46 @@
+.top{
+    text-align: right;
+    padding-top: 5%;
+    padding-right: 10%;
+}
+.a{
+    padding-left: 10%;
+}
+.user{
+    text-align: center;
+}
+.simei{
+    margin-left: 20%;
+}
+.kana{
+    margin-left: 20%;
+}
+.birthday{
+    margin-left: 20%;
+}
+.meado{
+    margin-left: 20%;
+}
+.denwa{
+    margin-left: 20%;
+}
+.yuubin{
+    margin-left: 20%;
+}
+.juusyo{
+    margin-left: 20%;
+}
+.syuusei{
+    margin-left: 70%;
+}
+.pass{
+    margin-left: 20%;
+}
+.passseetei{
+    margin-left: 70%;
+    /* padding: 10%; */
+}
+.userdelete{
+    padding: 2%;
+    margin-left: 10%;
+}

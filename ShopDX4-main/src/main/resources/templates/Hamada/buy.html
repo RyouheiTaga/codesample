@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>購入画面</title>
+<style>
+    h1{
+        padding-left: 200px;
+    }
+	.merch{
+            background-color: aqua; 
+            display: flex;
+            align-items: flex-start;
+            gap: 10px; 
+       
+	}
+    .item-info{
+            width: 100%;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        
+    }
+    .item-name{
+        font-weight: bold;
+        text-align: left;
+    }
+    .item-price{
+        color: #888;
+        text-align: left;
+    }
+    .buy-button{
+        margin-top:40px;
+        margin-left:100px;
+        height:90px;
+        width:200px;
+        background-color: orange;
+        border-radius: 10px;
+        border : solid 1px #b3b3b3 ;
+        border-top : solid 1px #e0e0e0;
+        border-bottom : solid 1px #717171;
+        box-shadow : 0 8px 8px rgba(100, 100, 100, 0.3);
+        transition: box-shadow 0.15s 0s ease-in-out;
+    }
+    .buy-button:hover{
+        border : solid 1px #b3b3b3 ;
+        border-top : solid 1px #e0e0e0 ;
+        border-bottom : solid 1px #e0e0e0 ;
+        box-shadow : 0 1px 2px rgba(100, 100, 100, 0.3);
+    }
+    .b{
+        text-align: center;
+        color: black;
+    	text-decoration: none;
+        text-align: center;
+        padding-top: 35px;
+        width:100%;
+        height:100%;
+        user-select: none;
+ }
+ 	img{
+		 height: 100px;
+		 width:80px;
+	 }
+
+</style>
+</head>
+<body>
+    <h1>商品を購入</h1>
+<div class="merch">
+	<div class="item-info">	
+	<table th:each="item : ${item}">
+	<tr>
+		<td>商品の名前</td>
+		<td>商品の値段</td>
+		<td>購入数</td>
+		<td>  </td>
+	</tr>
+	<tr>
+		<img th:src="@{'/image/' + ${item.code} + '.jpg'}" alt="商品の画像">
+		<td th:text="${item.name}">商品の名前</td>
+		<td th:text="${item.price * item.buynum}">商品の値段</td>
+		<td th:text="${item.buynum}">購入数</td>
+		<td><button>取り消しボタン</button></td>
+		<br>
+	</tr>
+</table></div></div>
+ 		<form method="POST" th:object="${Cart}" th:action="@{/hamada/pay}">
+		<input type="submit" value="支払画面に進む">
+		</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.top{
+    text-align: center;
+    padding-top: 5%;
+}
+.top2{
+    margin: 30px;
+    padding-top: 140px;
+    padding-bottom: 0%;
+}
+.pass{
+    text-align: center;
+    margin-right: 40%;
+}
+.pass2{
+    text-align: center;
+    margin-right: 15%;
+}
+.pass3{
+    text-align: center;
+    margin-right: 29%;
+}
+.pass4{
+    text-align: center;
+    margin-left: 10%;
+}
+.pass5{
+    text-align: center;
+    margin-right: 22%;
+}
+.pass6{
+    text-align: center;
+    margin-left: 10%;
+}
+.end{
+    text-align: center;
+    margin-left: 20%;
+    padding-top: 4%;
+}
+.end2{
+    height: 30px;
+    width: 180px;
+}

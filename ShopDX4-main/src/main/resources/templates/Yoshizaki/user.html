@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="user.css">
+    <link th:href="@{/yoshizaki/user.css}" rel="stylesheet" type="text/css" />
+    <title>ユーザー情報</title>
+</head>
+<body>
+    <div class="a">
+        <table>
+            <tr>
+                <td>ユーザーID :</td>
+                <td th:text="${id}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="user">
+        <h3>ユーザー情報</h3>
+    </div>
+    <table class="simei">
+        <tr>
+            <td>氏名:</td>
+            <td th:text="${sei} + ' ' + ${sei2}"></td>
+        </tr>
+    </table>
+    <table class="kana">
+        <tr>
+            <td>カナ:</td>
+            <td th:text="${sei} + ' ' + ${sei2}"></td>
+        </tr>
+    </table>
+    <table class="birthday">
+        <tr>
+            <td>生年月日:</td>
+            <td th:text="${birthday}"></td>
+        </tr>
+    </table>
+    <table class="meado">
+        <tr>
+            <td>メールアドレス:</td>
+            <td th:text="${meado}"></td>
+        </tr>
+    </table>
+    <table class="denwa">
+        <tr>
+            <td>連絡番号:</td>
+            <td th:text="${tel}"></td>
+        </tr>
+    </table>
+    <table class="yuubin">
+        <tr>
+            <td>郵便番号:</td>
+            <td th:text="${post}"></td>
+        </tr>
+    </table>
+    <table class="juusyo">
+        <tr>
+            <td>住所:</td>
+            <td th:text="${addr}"></td>
+        </tr>
+    </table>
+    <div class="syuusei">
+        <input type="button" onclick="location.href='./userjouhou'" value="ユーザー情報の修正">
+    </div>
+    <br>
+    <table class="pass">
+        <tr>
+            <td>パスワード :</td>
+            <td th:text="${pass}"></td>
+        </tr>
+    </table>
+    <div class="passseetei">
+        <input type="button" onclick="location.href='./passs'" value="パスワードの再設定">
+    </div>
+    <a href="hamada/buyhis">購入履歴へ</a>
+</body>
+</html>
+
+
+
+
+
+
+

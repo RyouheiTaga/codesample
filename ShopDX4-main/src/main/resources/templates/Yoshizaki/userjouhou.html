@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="userjouhou.css">
+    <link th:href="@{/yoshizaki/userjouhou.css}" rel="stylesheet" type="text/css" />
+    <title>ユーザー情報の修正</title>
+</head>
+<body>
+    <h1 class="top">ユーザー情報の修正</h1>
+    <br>
+
+    <h3 class="kihon">基本情報</h3>
+    <form th:action="@{/users}" th:object="${user}" method="post" >
+        <p class="name">氏名</p>
+        <table class="kanji">
+            <tr>
+                <td>旧:[[${user.sei}]]</td>
+                <td>旧:[[${user.mei}]]</td>
+            </tr>
+            <tr>
+                <td><input type="text" th:field="*{sei}" placeholder="姓"></td>
+                <td><input type="text" th:field="*{mei}" placeholder="名"></td>
+            </tr>
+        </table>
+        <p class="name2">カナ</p>
+        <table class="kana">
+            <tr>
+                <td>旧:[[${user.sei2}]]</td>
+                <td>旧:[[${user.mei2}]]</td>
+            </tr>
+            <tr>
+                <td><input type="text" th:field="*{sei2}" placeholder="セイ"></td>
+                <td><input type="text" th:field="*{mei2}" placeholder="メイ"></td>
+            </tr>
+        </table>
+        <p class="tanjoubi">生年月日</p>
+        <div class="tanjoubi2">
+            <p>旧:[[${user.birthdate}]]</p>
+            <input type="date" th:field="*{birthdate}" placeholder="yyyy/mm/dd">
+        </div>
+        <p class="meado">メールアドレス</p>
+        <dd class="meado2">
+            <p>旧:[[${user.mail}]]</p>
+            <input type="text" th:field="*{mail}" size="50" placeholder="メールアドレスを入力してください">
+        </dd>
+        <p class="denwa">電話番号</p>
+        <dd class="denwa2">
+            <p>旧:[[${user.tell}]]</p>
+            <input type="tel" th:field="*{tell}" size="9" maxlength="13" placeholder="xxx-xxxx-xxxx">
+        </dd>
+
+        <h3 class="juusho">住所</h3>
+        <p class="yuubin">郵便</p>
+        <dd class="yuubin2">
+            <p>旧:[[${user.post}]]</p>
+            <input type="tel" th:field="*{post}" size="4" maxlength="8" placeholder="xxx-xxxx">
+        </dd>
+        <p class="juusho2">住所</p>
+        <dd class="juusho3">
+            <p>旧:[[${user.addr}]]</p>
+            <input type="text" th:field="*{addr}" size="60" placeholder="〇〇県〇〇市〇〇区〇〇丁目〇〇番">
+        </dd>
+
+        <h3 class="idpass">ID</h3>
+        <p class="id">ID</p>
+        <div class="id2">
+            <p>旧:[[${user.uid}]]</p>
+            <input type="text" th:field="*{uid}" placeholder="16文字以内">
+        </div>
+        <br>
+        <div class="end">
+            <input type="submit" class="end2" onclick="" value="設定を更新する">
+        </div>
+    </form>
+</body>
+</html>

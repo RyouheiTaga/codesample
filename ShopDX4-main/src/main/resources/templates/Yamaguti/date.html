@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ShoppingWeb:入荷予定日管理</title>
+</head>
+
+<body>
+	<h1>ShoppingWeb:入荷予定日管理</h1>
+
+	<form method="POST" th:object="${merch}" th:action="@{/yamaguti/b2}">
+		<label>商品コード：</label><br>
+		<input type="text" th:field="*{code}" />
+		<br>
+		<label>入荷予定日：</label><br>
+		<input type="date" th:field="*{regiday}">
+		<br>
+		<label>商品名：</label><br>
+		<input type="text" th:field="*{name}" />
+		<br>
+		<label>価格：</label><br>
+		<input type="text" th:field="*{price}" />
+		<br>
+		<label>カテゴリ：</label><br>
+		<input type="text" th:field="*{category}" />
+		<br>
+		<label>在庫：</label><br>
+		<input type="text" th:field="*{stock}" />
+		<br>
+		<input type="submit" value="送信">
+
+
+	</form>
+	<br>
+	<hr>
+	<a href="#" th:href="@{/}">TOP画面へ戻る</a>
+</body>
+
+</html>

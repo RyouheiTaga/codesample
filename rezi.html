@@ -1,0 +1,238 @@
+
+
+<html>
+
+
+    <head>
+
+        <meta charset="UTF-8">
+       
+
+    </head>
+    <body>
+        
+    
+
+    <article>
+        <div class="header">
+            <span id="text"></span>
+            <span id="text2"></span>
+            <p>担当者:田賀遼平</p>
+        </div>
+
+        <div class="left">
+            <div class="buttondiv">
+                <button id="tako" >たこ焼き</button>
+                <button id="yakisoba">焼きそば</button>
+                <button id="ringo" >りんご飴</button>
+            </div>
+            
+            <div class="div2">
+                <div class="takoyakidiv" id="takoyakidiv"></div>
+            </div>
+        </div>
+        
+        
+            
+    <div class="under">
+        <div class="chousei">
+            <div>
+                <div class="aaaa">
+                    <p>合計金額:</p><p id="total" class="en"></p><p class="en">円</p>
+                </div>
+                <input type="text" id="kei">
+            </div>
+            <div>
+                <button id="syoukei">小計</button>
+            </div>
+            
+        
+        </div>
+</article>
+<script>
+var total = document.getElementById('total');
+
+var tataltal = 0 ;
+
+var takoyaki=document.getElementById('tako');
+var takoyakidiv=document.getElementById('takoyakidiv');
+takoyaki.addEventListener('click',function (){
+    var newdiv = document.createElement('div');
+
+    newdiv.textContent='たこ焼き100円';
+
+    takoyakidiv.appendChild(newdiv);
+
+    tataltal = tataltal + 100;
+
+    total.innerHTML = tataltal;
+
+});
+var takoyaki=document.getElementById('yakisoba');
+yakisoba.addEventListener('click',function(){
+    var newdiv = document.createElement('div');
+
+    newdiv.textContent='焼きそば300円';
+
+    tataltal = tataltal + 300;
+    total.innerHTML = tataltal;
+
+    takoyakidiv.appendChild(newdiv);
+});
+var ringo=document.getElementById('ringo');
+ringo.addEventListener('click',function(){
+    var newdiv = document.createElement('div');
+
+    newdiv.textContent='りんご飴100円';
+
+    tataltal = tataltal + 100;
+    total.innerHTML = tataltal;
+
+    takoyakidiv.appendChild(newdiv);
+});
+var kei = document.getElementById('kei');
+
+var syoukei = document.getElementById('syoukei');
+syoukei.addEventListener('click',function(){
+     
+    //var kei1 = kei.value ;//parseFloat(syoukei.value);
+    var total1 = tataltal//parseFloat(total.value);//total.value  ;
+    if(kei.value < total1){
+        alert('金額が足りません');
+    }
+    else {
+    var xxx = kei.value - total1; 
+        alert('ご購入ありがとうございました\nおつりは'+xxx+'円です');
+        
+    }
+});
+
+
+document.getElementById("text2").innerHTML = showTime();
+
+function showTime() {
+var now = new Date();
+var nowhour = now.getHours();
+var nowminutes = now.getMinutes();
+var nowseconds = now.getSeconds();
+
+var text = nowhour + "：" + nowminutes + "：" + nowseconds; 
+
+return text;
+
+}
+
+document.getElementById("text").innerHTML = showDay();
+
+function showDay() {
+var now = new Date();
+var day = now.getDate();
+var month = now.getMonth();
+var year = now.getFullYear();
+
+var text2 = year + "/" + month + "/" + day;
+
+return text2;
+
+
+}
+
+</script>
+</body>
+
+  
+
+
+
+
+
+    <style>
+        #tako{
+            width: 100px;
+            height: 80px;
+        }
+        #yakisoba{
+            width: 100px;
+            height: 80px;
+        }
+        #ringo{
+            width: 100px;
+            height: 80px;
+        }
+        #takoyakidiv{
+            text-align: right;
+            
+            
+        }
+        .takoyakidiv div{
+            background-color: aliceblue;
+            padding: 2%;
+        }
+        .left{
+            display: flex;
+        }
+        article{
+            margin: 20px;
+            border: solid 1.5px;
+            width: 60%;
+        }
+        .div2{
+            overflow: scroll;
+            margin-left: 10px;
+            margin-top: 10px;
+            border: solid 1.5px;
+            width: 45%;
+            height: 400px;
+        }
+        .buttondiv{
+
+            padding: 10px;
+            width: 51%;
+
+        }
+        .under{
+            margin: 0 0 0 auto;
+            width: 40%;
+            margin-bottom: 10px;
+            display: flex;
+            
+            
+        }
+        
+        .under button{
+            margin: 10px;
+            width: 80px;
+            height: 86px;
+            margin-right: 10px;
+            font-size: x-large;
+        }
+        #kei{
+            height: 40px;
+            width: 200px;
+            font-size: larger;
+            text-align: right;
+        }
+        .aaaa{
+            display: flex;
+        }
+        .chousei{
+            margin: 0 0 0 auto;
+            display: flex;
+        }
+        .en{
+            margin: 15px 0 0 auto;
+        }
+        .header{
+            padding: 15px;
+            
+
+            display: flex;
+        }
+        .header p{
+            margin: 0 0 0 auto;
+        }
+        #text{
+            margin-right: 15px;
+        }
+    </style>
+</html>

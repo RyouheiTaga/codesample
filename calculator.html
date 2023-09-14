@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>電卓</title>
+
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <div class="inputdiv">
+
+            <input class="input" type="text" id="inputmenu1" readonly>
+
+            <input class="input" type="text" id="inputmenu2" readonly>
+
+            <input class="inputfunc" type="text" id="function" readonly>
+            
+            <br>
+
+            <input class="result" type="text" id="result" readonly>
+
+        </div> 
+        
+
+        <div class="inputnum" id="inputnum">
+            
+            <div class="button" >
+                <button onclick="appendToDisplay(7)">7</button>
+                <button onclick="appendToDisplay(8)">8</button>
+                <button onclick="appendToDisplay(9)">9</button>
+                <button onclick="appendToDisplay('/')">/</button>
+            </div>
+            <div class="button">
+                <button onclick="appendToDisplay(4)">4</button>
+                <button onclick="appendToDisplay(5)">5</button>
+                <button onclick="appendToDisplay(6)">6</button>
+                <button onclick="appendToDisplay('*')">*</button>
+            </div>
+            <div class="button">
+                <button onclick="appendToDisplay(1)">1</button>
+                <button onclick="appendToDisplay(2)">2</button>
+                <button onclick="appendToDisplay(3)">3</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="clearAll()">AC</button>
+            </div>
+            <div class="button">
+                <button onclick="appendToDisplay(0)">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="calculateResult()">=</button>
+                <button onclick="appendToDisplay('+')">+</button>
+                <button onclick="clearInput()">C</button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <style>
+
+        button {
+            width: 60px;
+            height: 60px;
+            margin: 0.5%;
+            background-color: white;
+            /* border: none; */
+            font-size: x-large;
+            border: solid 2.5px;
+        }
+        .inputfunc{
+            width: 40px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-size: x-large;
+        }
+        .input{
+            width: 135px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-size: x-large;
+        }
+        .result{
+            width: 310px;
+            height: 40px;
+            border: none;
+            margin-left: 20px;
+            font-size: x-large;
+        }
+        .inputdiv{
+            width: 335px;
+            height: 90px;
+            border: solid;
+            margin-left: 2.5px;
+            margin-bottom: 2px;
+        }
+    </style>
+
+    <script>
+       
+            
+
+        var inputElement1 = document.getElementById('inputmenu1');
+        var functionElement = document.getElementById('function');
+        var inputElement2 = document.getElementById('inputmenu2');       
+        var outputElement = document.getElementById('result');
+
+        function appendToDisplay(value){
+
+            var func = functionElement.value;
+            var result ;
+            var o1 = parseFloat(inputElement1.value);
+            var o2 = parseFloat(inputElement2.value);
+
+            if (functionElement.value === '' && (value !== '-' && value !== '+' && value !== '*' && value !== '/')) {
+                if(inputElement1.value.indexOf('.') !== -1){
+                    if(value === '.'){
+                    }
+                    else{
+                        inputElement1.value += value;
+                    }
+                }
+                else {
+                    inputElement1.value += value;
+                }
+            }
+
+
+            else if (value === '-' || value === '+' || value === '*' || value === '/'){
+
+                
+                
+                if(inputElement1.value !=='' && inputElement2.value !== '' && functionElement.value !== ''){
+                 
+                    switch(func){
+
+                    case '+' : result = o1 + o2 ;
+                    break ;
+                    case '-' : result = o1 - o2 ;
+                    break ;
+                    case '*' : result = o1 * o2 ;
+                    break ;
+                    case '/' : result = o1 / o2 ;
+                    break ;
+                    default : result = "error" ;
+
+                    }
+
+                    outputElement.value = result ;
+                    functionElement.value = value ;
+
+                }
+
+                else if( inputElement1.value !== ''){
+                        functionElement.value = value;
+                }
+
+                else{
+
+                }
+            }
+
+
+            else {
+                if(inputElement2.value.indexOf('.') !== -1){
+                    if(value === '.'){
+                    }
+                    else{
+                        inputElement2.value += value;
+                    }
+                }
+                else {
+                    inputElement2.value += value;
+                }
+            }
+
+            if ( outputElement.value !== ''){
+                if ( value === '-' || value === '+' || value === '*' || value === '/' ) {
+                    inputElement1.value = outputElement.value ;
+                    inputElement2.value = '' ;
+                    functionElement.value = value ;
+                    outputElement.value = '' ;
+
+                }
+                else if ( value !== '-' && value !== '+' && value !== '*' && value !== '/'){
+                    
+                    
+                    inputElement2.value = '' ;
+                    functionElement.value = '' ;
+                    outputElement.value = '' ; 
+                    inputElement1.value = value ;
+                }
+
+            }
+
+        }
+
+
+        function clearInput(){
+            inputElement1.value = '' ;
+            inputElement2.value = '' ;
+            functionElement.value = '' ;
+        }
+        
+        function clearAll(){
+            inputElement1.value = '' ;
+            inputElement2.value = '' ;
+            functionElement.value = '' ;
+            outputElement.value = '' ;
+        }
+
+        function calculateResult(){
+
+            var func = functionElement.value;
+            var result ;
+            var o1 = parseFloat(inputElement1.value);
+            var o2 = parseFloat(inputElement2.value);
+            
+
+            if ( inputElement1.value !=='' && inputElement2.value !== '' && functionElement.value !== ''){
+                
+                switch(func){
+                    case '+' : result = o1 + o2 ;
+                    break ;
+                    case '-' : result = o1 - o2 ;
+                    break ;
+                    case '*' : result = o1 * o2 ;
+                    break ;
+                    case '/' : result = o1 / o2 ;
+                    break ;
+                    default : result = "error" ;
+                }
+
+                outputElement.value = result ;
+
+            }
+         
+        }
+
+    </script>
+    
+</body>

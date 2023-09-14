@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>購入履歴</title>
+<style>
+#empty{
+    background-color: aliceblue;
+    display: inline-block;
+}
+#empty p{
+    padding-left: 100px;
+    padding-top: 50px;
+}
+.redirect-button{
+    position:relative;
+    margin-top:40px;
+    margin-left:100px;
+    height:90px;
+    width:200px;
+    background-color: orange;
+}
+#history{
+    background-color: aqua;
+    display: none; 
+    align-items: flex-start;
+    gap: 10px; 
+}
+.item-info{
+    width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.item-name{
+    font-weight: bold;
+    text-align: left;
+}
+.item-date{
+    color: #888;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+<h1>商品購入履歴</h1>
+<div id="empty" th:if="${#lists.isEmpty(item)}">
+    <p>購入履歴がありません</p>
+    <div class="redirect-button"><a href="/user">ユーザーページに戻る</a></div>
+</div>
+    <div id="buyhis" th:unless="${#lists.isEmpty(item)}">
+        <div id="merch">		
+        <div class="item-info">
+		<table class="a">
+		<tr>
+			<td>商品の画像</td>
+			<td>商品の名前</td>	
+		</tr>
+
+		<tr th:each="item : ${item}">
+		<td><img th:src="@{'/image/' + ${item.code} + '.jpg'}" alt="商品の画像"></td>
+        <td th:text="${item.name}">商品の名前</td>
+        </tr>
+        	</table>
+        </div>
+        </div>    
+
+<script>
+</script>
+</body>
+</html>

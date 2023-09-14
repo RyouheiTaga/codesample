@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ShoppingWeb:商品検索</title>
+</head>
+
+<body>
+	<h1>ShoppingWeb:商品検索</h1>
+
+	<form method="POST" th:object="${merch}" th:action="@{/yamaguti/kensaku2}">
+		<label>商品コード：</label><br>
+		<input type="text" th:field="*{code}" placeholder="キーワードを入力" />
+		<br>
+		<input type="submit" value="検索">
+
+	</form>
+	<br>
+	<hr>
+
+	<a href="#" th:href="@{/}">TOP画面へ戻る</a>
+</body>
+
+</html>

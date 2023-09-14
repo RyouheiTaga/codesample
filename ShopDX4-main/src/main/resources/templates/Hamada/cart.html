@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>カートの表示制御</title>
+    <style>
+		#head{
+			padding-left:10px;
+            color:aquamarine;
+            user-select: none;
+		}
+        #empty-cart{
+            display: inline-block;
+        }
+        .button{
+            position:relative;
+            margin-top:40px;
+            margin-left:100px;
+            height:90px;
+            width:200px;
+            background-color: aquamarine;
+            border-radius: 10px;
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0;
+            border-bottom : solid 1px #717171;
+            box-shadow : 0 8px 8px rgba(100, 100, 100, 0.3);
+            transition: box-shadow 0.15s 0s ease-in-out;
+        }
+        .buttonA{
+            position:relative;
+            margin-top:40px;
+            margin:0 auto;
+            height:90px;
+            width:200px;
+            background-color: orange;
+            border-radius: 10px;
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0;
+            border-bottom : solid 1px #717171;
+            box-shadow : 0 8px 8px rgba(100, 100, 100, 0.3);
+            transition: box-shadow 0.15s 0s ease-in-out;
+        }
+        .buttonA:hover{
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0 ;
+            border-bottom : solid 1px #e0e0e0 ;
+            box-shadow : 0 1px 2px rgba(100, 100, 100, 0.3);   
+        }
+        .buttonB{
+            position:relative;
+            margin-top:40px;
+            margin:0 auto;
+            height:90px;
+            width:200px;
+            background-color: gray;
+            border-radius: 10px;
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0;
+            border-bottom : solid 1px #717171;
+            box-shadow : 0 8px 8px rgba(100, 100, 100, 0.3);
+            transition: box-shadow 0.15s 0s ease-in-out;
+        }
+        .buttonB:hover{
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0 ;
+            border-bottom : solid 1px #e0e0e0 ;
+            box-shadow : 0 1px 2px rgba(100, 100, 100, 0.3); 
+        }
+        .b{
+            text-decoration: none;
+            text-align: center;
+            color:black;
+            position:absolute;
+            padding-top: 35px;
+            width:100%;
+            height:100%;
+            user-select: none;
+        }
+        .button:hover{
+            border : solid 1px #b3b3b3 ;
+            border-top : solid 1px #e0e0e0 ;
+            border-bottom : solid 1px #e0e0e0 ;
+            box-shadow : 0 1px 2px rgba(100, 100, 100, 0.3); 
+        }
+        #merch{
+            background-color: aqua; 
+            display: flex;
+            align-items: flex-start;
+            gap: 10px; 
+        }
+        .item-info{
+            width: 100%;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-name{
+            font-weight: bold;
+            text-align: left;
+        }
+        .item-price{
+            color: #888;
+            text-align: left;
+        }
+        .a{
+			width:100%;
+		}
+	</style>
+</head>
+<body>  
+  <h1 id="head">ショッピングカート</h1>
+    <div id="cart" th:unless="${#lists.isEmpty(item)}">
+        <!-- カートの中身がある場合の表示 -->
+        <div id="merch">		
+        <div class="item-info">
+		<table class="a">
+		<tr>
+			<td>商品の画像</td>
+			<td>商品の名前</td>
+			<td>商品の価格</td>
+			<td>購入数</td>
+									
+		</tr>
+
+		<tr th:each="item : ${item}">
+		<td><img th:src="@{'/image/' + ${item.code} + '.jpg'}" alt="商品の画像"></td>
+        <td th:text="${item.name}">商品の名前</td>
+        <td th:text="${item.price * item.buynum}">価格</td>
+        <td th:text="${item.buynum}"></td>
+        <td>
+		<form method="POST" th:action="@{/hamada/delete}">
+		<input type="hidden" name="id" th:value="${item.code}">
+		<input type="hidden" name="uid" th:value="${item.uid}">
+			<input type="submit" value="削除">
+					</form>
+				</td>
+        </tr>
+        	</table>
+        </div>
+        </div>    
+		<form method="POST" th:object="${Cart}" th:action="@{/hamada/buy}">
+		<input type="submit" value="購入する">
+		</form>
+    </div>
+    
+    <div id="empty-cart" th:if="${#lists.isEmpty(item)}">
+        <!-- カートが空の場合の表示 -->
+        <h1 id="head">カートは空です</h1>
+        <div class="button"><a href="/" class="b">ショッピングを続ける</a></div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>

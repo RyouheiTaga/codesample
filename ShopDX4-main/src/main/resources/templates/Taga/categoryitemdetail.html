@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>[[${item.name}]]の詳細</h1>
+    <!-- アイテムの詳細情報を表示 -->
+    <img class="itemimage" th:src="@{'/image/' + ${item.code} + '.jpg'}">
+    <p>[[${item.name}]]</p>
+    <p>[[${item.price}]]円</p>
+    <!-- 他のアイテム詳細情報を表示 -->
+    				<form method="POST" th:object="${merch}" th:action="@{/yamaguti/e}">
+					<input type="submit" class="cart-btn" value="カートに追加" >
+
+				</form>
+</body>
+</html>
